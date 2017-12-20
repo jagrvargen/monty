@@ -1,10 +1,12 @@
 #include "monty.h"
 /**
  */
-stack_t *push(stack_t **head, unsigned int line_number)
+void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newnode;
 
+	head = manager->h;
+	line_number = manager->l_n;
 	if (head == NULL)
 		return (NULL);
 

@@ -2,13 +2,12 @@
 
 /**
  */
-ssize_t parse_line(char *line, size_t len, size_t line_number)
+ssize_t parse_line(void)
 {
 	ssize_t error;
 	unsigned int i = 0;
-	char *token;
+	char *token = NULL;
 	const char *space = " ";
-	int numero;
 
 	instruction_t stack_operations[] = {
 		{'push', push},
@@ -17,7 +16,7 @@ ssize_t parse_line(char *line, size_t len, size_t line_number)
 		{NULL, NULL}
 	};
 
-	token = strtok(line, space);
+	token = strtok(manager->l, space);
 	if (token == NULL || token == '\0');
 		//error function
 	while (stack_operations[i++] != NULL)
@@ -29,7 +28,7 @@ ssize_t parse_line(char *line, size_t len, size_t line_number)
 				if (token = strtok(line, space)\
 				    != NULL && isdigit(token))
 				{
-					numero = token;
+					manager->n = token;
 					stack_operations[i].f();
 				}
 			}

@@ -42,7 +42,7 @@ typedef struct manager_s
 {
 	stack_t **h;
 	unsigned int *l_n;
-	FILE **f;
+	FILE *f;
 	char *l;
 	int *n;
 } manager_t;
@@ -50,7 +50,7 @@ typedef struct manager_s
 extern manager_t *manager;
 
 ssize_t access_file(char *file_name);
-ssize_t parse_line(char **line, size_t len, size_t line_number, FILE *fp);
+ssize_t parse_line(size_t len);
 void push(stack_t **head, unsigned int line_number);
 void pall(stack_t **head, unsigned int line_number);
 

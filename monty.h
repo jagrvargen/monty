@@ -38,6 +38,8 @@ typedef struct instruction_s
 
 ssize_t access_file(char *file_name);
 ssize_t parse_line(char *line);
+stack_t *push(stack_t **stack, int n);
+stack_t *pall(stack_t *stack);
 
 extern int numero;
 

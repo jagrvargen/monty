@@ -36,10 +36,23 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ */
+typedef struct manager_s
+{
+	stack_t *head;
+	unsigned int line_number;
+	FILE *fp;
+	char *line;
+	int *n;
+} manager_t;
+
+extern manager_t *manager;
+
 ssize_t access_file(char *file_name);
-ssize_t parse_line(char *line);
-stack_t *push(stack_t **stack, int n);
-stack_t *pall(stack_t *stack);
+ssize_t parse_line(char **line, size_t len, size_t line_number, FILE *fp);
+stack_t *push(stack_t **head, unsigned int line_number);
+void pall(stack_t **head, unsigned int line_number);
 
 extern int numero;
 

@@ -39,4 +39,6 @@ typedef struct instruction_s
 ssize_t access_file(char *file_name);
 ssize_t parse_line(char *line);
 
+extern int numero;
+
 #endif

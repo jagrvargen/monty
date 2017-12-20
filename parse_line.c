@@ -8,10 +8,12 @@ ssize_t parse_line(char *line, size_t len, size_t line_number)
 	unsigned int i = 0;
 	char *token;
 	const char *space = " ";
+	int numero;
 
 	instruction_t stack_operations[] = {
 		{'push', push},
 		{'pall', pall},
+		{'pint', pint}
 		{NULL, NULL}
 	};
 
@@ -23,7 +25,14 @@ ssize_t parse_line(char *line, size_t len, size_t line_number)
 			if (strcmp(token, stack_operations[i].opcode) == 0)
 			{
 				if (i == 0)
-					/* handle push */
+				{
+					if (token = strtok(line, space)\
+					    != NULL && isdigit(token))
+					{
+						numero = token;
+						stack_operations[i].f();
+					}
+				}
 				else
 					stack_operations[i].f();
 			}

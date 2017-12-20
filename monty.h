@@ -40,10 +40,10 @@ typedef struct instruction_s
  */
 typedef struct manager_s
 {
-	stack_t *head;
-	unsigned int line_number;
-	FILE *fp;
-	char *line;
+	stack_t **h;
+	unsigned int *l_n;
+	FILE **f;
+	char *l;
 	int *n;
 } manager_t;
 

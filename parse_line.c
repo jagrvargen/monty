@@ -2,7 +2,7 @@
 
 /**
  */
-ssize_t parse_line(char **line, size_t len, size_t line_number)
+ssize_t parse_line(char *line, size_t len, size_t line_number)
 {
 	ssize_t error;
 	unsigned int i = 0;
@@ -14,7 +14,19 @@ ssize_t parse_line(char **line, size_t len, size_t line_number)
 		{'pall', pall},
 		{NULL, NULL}
 	};
-	while (token != NULL && token != '\n')
-		token = strtok(*line, space);
-	
+
+	token = strtok(line, space);
+	if (token != NULL && token != '\0')
+	{
+		while (stack_operations[i++] != NULL)
+		{
+			if (strcmp(token, stack_operations[i].opcode) == 0)
+			{
+				if (i == 0)
+					/* handle push */
+				else
+					stack_operations[i].f();
+			}
+		}
+	}
 }

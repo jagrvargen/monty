@@ -41,3 +41,15 @@ void pall(stack_t **head, unsigned int line_number)
 		print = print->next;
 	}
 }
+void pint(stack_t **head, unsigned int line_number)
+{
+        if (*head == NULL)
+        {
+	        func_error(3, line_number);
+	}
+	else
+                while (head != NULL)
+                {
+                        printf("%d\n", head->n);
+                }
+}

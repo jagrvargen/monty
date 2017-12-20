@@ -18,24 +18,25 @@ ssize_t parse_line(char *line, size_t len, size_t line_number)
 	};
 
 	token = strtok(line, space);
-	if (token != NULL && token != '\0')
+	if (token == NULL || token == '\0');
+		//error function
+	while (stack_operations[i++] != NULL)
 	{
-		while (stack_operations[i++] != NULL)
+		if (strcmp(token, stack_operations[i].opcode) == 0)
 		{
-			if (strcmp(token, stack_operations[i].opcode) == 0)
+			if (i == 0)
 			{
-				if (i == 0)
+				if (token = strtok(line, space)\
+				    != NULL && isdigit(token))
 				{
-					if (token = strtok(line, space)\
-					    != NULL && isdigit(token))
-					{
-						numero = token;
-						stack_operations[i].f();
-					}
-				}
-				else
+					numero = token;
 					stack_operations[i].f();
+				}
 			}
+			else
+				stack_operations[i].f();
 		}
 	}
+	if (stack_operations == NULL)
+		//error function
 }

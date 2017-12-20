@@ -5,6 +5,8 @@ void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newnode;
 
+	(void) head;
+	(void) line_number;
 	head = manager->h;
 	line_number = manager->l_n;
 	if (head == NULL)
@@ -32,6 +34,8 @@ void pall(stack_t **head, unsigned int line_number)
 {
 	stack_t *print;
 
+	(void) head;
+	(void) line_number;
 	if (head == NULL || *head == NULL)
 		return;
 	print = *head;

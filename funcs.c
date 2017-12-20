@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  */
-stack_t *push(stack_t **head, int n)
+void (*push)(stack_t **head, unsigned int line_number)
 {
 	stack_t *newnode;
 
@@ -24,8 +24,7 @@ stack_t *push(stack_t **head, int n)
 		(*head) = newnode;
 	}
 }
-
-stack_t *pall(stack_t *head)
+void (*pall)(stack_t *head, unsigned int line_number)
 {
 	if (head == NULL)
 		printf("\n");
@@ -35,4 +34,16 @@ stack_t *pall(stack_t *head)
 			printf("%d\n", head->n);
 			head = head->next;
 		}
+}
+void (*pint)(stack_t *head, unsigned int line_number)
+{
+        if ((*head) == NULL)
+        {
+	        func_error(3, line_number);
+	}
+	else
+                while (head != NULL)
+                {
+                        printf("%d\n", head->n);
+                }
 }

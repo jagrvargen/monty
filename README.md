@@ -1,1 +1,1 @@
-			Stacks, Queues, Filo, Fifo
+			Stacks, Queues, Filo, Lifo

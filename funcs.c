@@ -4,21 +4,23 @@
 void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newnode;
-
+	printf("check push\n");
 	(void) head;
 	(void) line_number;
 
 	if (manager->h == NULL)
 		free_manager();
-
+	printf("check push 2\n");
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
+		printf("check push 3\n");
 		free_manager();
 		exit(EXIT_FAILURE);
 	}
 	newnode->n = manager->n;
 	newnode->prev = NULL;
+	printf("manager->n is %d\n", manager->n);
 	if (*manager->h == NULL)
 	{
 		newnode->next = *manager->h;
@@ -52,7 +54,7 @@ void pall(stack_t **head, unsigned int line_number)
 void pint(stack_t **head, unsigned int line_number)
 {
 	stack_t *print;
-
+	printf("check pint\n");
 	(void) head;
 	(void) line_number;
 

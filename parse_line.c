@@ -6,9 +6,7 @@ void parse_line(void)
 {
 	unsigned int i = 0;
 	char *token = NULL;
-	const char *space = " ";
-	stack_t *head = NULL;
-	unsigned int l_num = 0;
+	char *space = " '\n'";
 
 	instruction_t stack_operations[] = {
 		{"push", push},
@@ -18,25 +16,30 @@ void parse_line(void)
 	};
 
 	token = strtok(manager->l, space);
-/*	if (token == NULL || token == '\0');
- */
-	while (stack_operations[i++].opcode != NULL)
+	if (token == NULL || token == '\0');
+
+	while (stack_operations[i].opcode != NULL)
 	{
 		if (strcmp(token, stack_operations[i].opcode) == 0)
 		{
 			if (i == 0)
 			{
-				token = strtok(manager->l, space);
-				if (isdigit(atoi(token)))
+				token = strtok(NULL, space);
+				if (token == NULL)
+					free_manager();
+				if (atoi(token))
 				{
-					manager->n = *token;
-					stack_operations[i].f(&head, l_num);
+					manager->n = atoi(token);
+					stack_operations[i].f(NULL, 0);
 				}
 			}
 			else
-				stack_operations[i].f(&head, l_num);
+			{
+				stack_operations[i].f(NULL, 0);
+			}
 		}
+		i++;
 	}
-/*	if (stack_operations == NULL)
- */
+	if (stack_operations == NULL)
+		exit(EXIT_FAILURE);
 }

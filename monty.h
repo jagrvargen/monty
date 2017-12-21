@@ -40,7 +40,7 @@ typedef struct instruction_s
  */
 typedef struct manager_s
 {
-	stack_t **h;
+	stack_t *h;
 	unsigned int l_n;
 	FILE *fp;
 	char *l;

@@ -20,11 +20,7 @@ int main(int argc, char *argv[])
 
 	manager->fp = fopen(argv[1], "r");
 	if (manager->fp == NULL)
-        {
-                printf("Error: Can't open file %s\n", manager->file_name);
-                free(manager);
-                exit(EXIT_FAILURE);
-        }
+		error_print(1);
 
 	access_file();
 

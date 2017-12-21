@@ -8,7 +8,7 @@ void add(stack_t **head, unsigned int line_number)
 	(void) line_number;
 
 	if (manager->h == NULL || manager->h->next == NULL)
-		error_print(8);
+		error_print2(8);
 
 	temp = manager->h;
 	manager->h = manager->h->next;

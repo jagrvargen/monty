@@ -6,8 +6,8 @@ void free_manager(void)
 
 	while (manager->h != NULL)
 	{
-		free((manager->h));
-		*manager->h = (*manager->h)->next;
+		free(manager->h);
+		manager->h = manager->h->next;
 	}
 	free(manager->h);
 

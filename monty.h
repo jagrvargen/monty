@@ -60,6 +60,7 @@ void pint(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void error_print(int n);
+void error_print2(int n);
 void free_manager(void);
 
 #endif

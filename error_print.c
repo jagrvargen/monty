@@ -5,7 +5,7 @@ void error_print(int n)
 	if (n == 1)
 	{
 		printf("Error: Can't open file %s\n", manager->file_name);
-		free_manager()
+		free_manager();
 		exit(EXIT_FAILURE);
 	}
 	else if (n == 2)
@@ -45,13 +45,13 @@ void error_print2(int n)
 	}
 	else if (n == 7)
 	{
-		printf("L%d: can't swap, stack too short\n");
+		printf("L%d: can't swap, stack too short\n", manager->l_n);
 		free_manager();
 		exit(EXIT_FAILURE);
 	}
 	else if (n == 8)
 	{
-		printf("L%d: can't add, stack too short\n");
+		printf("L%d: can't add, stack too short\n", manager->l_n);
 		free_manager();
 		exit(EXIT_FAILURE);
 	}

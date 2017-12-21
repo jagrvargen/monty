@@ -16,8 +16,8 @@ void parse_line(void)
 	};
 
 	token = strtok(manager->l, space);
-/*	if (token == NULL || token == '\0');
- */
+	if (token == NULL || token == '\0');
+
 	while (stack_operations[i].opcode != NULL)
 	{
 		if (strcmp(token, stack_operations[i].opcode) == 0)
@@ -25,17 +25,16 @@ void parse_line(void)
 			if (i == 0)
 			{
 				token = strtok(NULL, space);
-				printf("token is %d\n", atoi(token));
+				if (token == NULL)
+					free_manager();
 				if (atoi(token))
 				{
-					printf("check1\n");
 					manager->n = atoi(token);
 					stack_operations[i].f(NULL, 0);
 				}
 			}
 			else
 			{
-				printf("check2\n");
 				stack_operations[i].f(NULL, 0);
 			}
 		}

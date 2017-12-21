@@ -41,19 +41,20 @@ typedef struct instruction_s
 typedef struct manager_s
 {
 	stack_t **h;
-	unsigned int *l_n;
-	FILE *f;
+	unsigned int l_n;
+	FILE *fp;
 	char *l;
-	int *n;
+	int n;
 } manager_t;
 
 extern manager_t *manager;
 
-ssize_t access_file(char *file_name);
-ssize_t parse_line(size_t len);
+void access_file(char *file_name);
+void parse_line(void);
 void push(stack_t **head, unsigned int line_number);
 void pall(stack_t **head, unsigned int line_number);
-
-extern int numero;
+void pint(stack_t **head, unsigned int line_number);
+void error_print(int n);
+void free_manager(void);
 
 #endif

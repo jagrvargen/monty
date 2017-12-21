@@ -5,26 +5,30 @@ void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newnode;
 
-	head = manager->h;
-	line_number = manager->l_n;
-	if (head == NULL)
-		return (NULL);
+	(void) head;
+	(void) line_number;
+
+	if (manager->h == NULL)
+		free_manager();
 
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
-		return (NULL);
-	newnode->n = numero;
-	newnode->prev = NULL;
-	if (*head == NULL)
 	{
-		newnode->next = *head;
-		*head = newnode;
+		free_manager();
+		exit(EXIT_FAILURE);
+	}
+	newnode->n = manager->n;
+	newnode->prev = NULL;
+	if (*manager->h == NULL)
+	{
+		newnode->next = *manager->h;
+		*manager->h = newnode;
 	}
 	else
 	{
-		newnode->next = *head;
+		newnode->next = *manager->h;
 		newnode->next->prev = newnode;
-		*head = newnode;
+		*manager->h = newnode;
 	}
 }
 
@@ -32,26 +36,34 @@ void pall(stack_t **head, unsigned int line_number)
 {
 	stack_t *print;
 
-	if (head == NULL || *head == NULL)
+	(void) head;
+	(void) line_number;
+
+	if (*manager->h == NULL)
 		return;
-	print = *head;
+	print = *manager->h;
 	while (print != NULL)
 	{
 		printf("%d\n", print->n);
 		print = print->next;
 	}
 }
+
 void pint(stack_t **head, unsigned int line_number)
 {
-        if (*head == NULL)
-        {
-	        func_error(3, line_number);
+	stack_t *print;
+
+	(void) head;
+	(void) line_number;
+
+        if (*manager->h == NULL)
+		error_print(3);
+
+	print = *(manager->h);
+	while (print != NULL)
+	{
+		printf("%d\n", print->n);
 	}
-	else
-                while (head != NULL)
-                {
-                        printf("%d\n", head->n);
-                }
 }
 void pop(stack_t **head, unsigned int line_number)
 {

@@ -11,11 +11,11 @@ void access_file(char *file_name)
         if (manager->fp == NULL)
 	{
 		printf("Error: Can't open file %s\n", file_name);
+		free(manager);
                 exit(EXIT_FAILURE);
 	}
 	while (read != EOF)
 	{
-		printf("check 1 access\n");
 		read = getline(&(manager->l), &len, manager->fp);
 		if (read != EOF)
 		{

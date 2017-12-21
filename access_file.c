@@ -8,11 +8,8 @@ void access_file(void)
 	size_t len = 0;
 
         if (manager->fp == NULL)
-	{
-		printf("Error: Can't open file %s\n", manager->file_name);
-		free(manager);
-                exit(EXIT_FAILURE);
-	}
+		error_print(1);
+
 	while (read != EOF)
 	{
 		read = getline(&(manager->l), &len, manager->fp);

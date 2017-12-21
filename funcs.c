@@ -1,5 +1,9 @@
 #include "monty.h"
 /**
+ * push - A function which pushes a node to the top of a stack.
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
  */
 void push(stack_t **head, unsigned int line_number)
 {
@@ -30,6 +34,12 @@ void push(stack_t **head, unsigned int line_number)
 	}
 }
 
+/**
+ * pall - A function which prints all the integer values on the stack.
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
 void pall(stack_t **head, unsigned int line_number)
 {
 	stack_t *print;
@@ -47,6 +57,12 @@ void pall(stack_t **head, unsigned int line_number)
 	}
 }
 
+/**
+ * pint - A function which prints the value of the top member of the stack
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
 void pint(stack_t **head, unsigned int line_number)
 {
 	stack_t *print;
@@ -54,12 +70,19 @@ void pint(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 
-        if (manager->h == NULL)
+	if (manager->h == NULL)
 		error_print(5);
 
 	print = manager->h;
 	printf("%d\n", print->n);
 }
+
+/**
+ * pop - A function which removes the top member of the stack.
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
 void pop(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
@@ -76,6 +99,12 @@ void pop(stack_t **head, unsigned int line_number)
 	free(temp);
 }
 
+/**
+ * swap - A function which swaps the top two members of the stack.
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
 void swap(stack_t **head, unsigned int line_number)
 {
 	int temp_num;

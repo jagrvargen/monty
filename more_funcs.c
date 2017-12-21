@@ -1,4 +1,12 @@
 #include "monty.h"
+
+/**
+ * add - A function which adds the first two values on stack, removes the top,
+ * and stores the added value in the new top.
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
 void add(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
@@ -17,6 +25,13 @@ void add(stack_t **head, unsigned int line_number)
 	manager->h->prev = NULL;
 	free(temp);
 }
+
+/**
+ * nop - A function which does nothing.
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
 void nop(stack_t **head, unsigned int line_number)
 {
 	(void)(*head);

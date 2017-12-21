@@ -17,9 +17,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -32,11 +32,21 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
+ * struct manager_s - contains values associated with malloc'd memory
+ * @h: A pointer to the head node of the stack.
+ * @l_n: An integer denoting the line number currently accessed by program.
+ * @fp: A pointer to an open file.
+ * @l: A buffer which contains a string.
+ * @n: An integer to be placed on stack.
+ * @file_name: The name of the open file.
+ *
+ * Description: Contains all values which must be tracked in order to create
+ * appropriate error messages and releases of memory.
  */
 typedef struct manager_s
 {

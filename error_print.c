@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * error_print - Uses an integer parameter to determine appropriate error.
+ *
+ * @n: An integer value denoting error code.
+ */
 void error_print(int n)
 {
 	if (n == 1)
@@ -34,6 +39,11 @@ void error_print(int n)
 	}
 }
 
+/**
+ * error_print2 - Uses an integer parameter to determine appropriate error.
+ *
+ * @n: An integer value denoting error code.
+ */
 void error_print2(int n)
 {
 	if (n == 6)

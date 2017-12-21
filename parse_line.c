@@ -1,6 +1,8 @@
 #include "monty.h"
 
 /**
+ * parse_line - A function which parses the lines read from FILE.
+ *
  */
 void parse_line(void)
 {
@@ -27,7 +29,8 @@ void parse_line(void)
 		{
 			if (i == 0)
 			{
-				if((token = strtok(NULL, space)) && atoi(token))
+				token = strtok(NULL, space));
+				if ((token && atoi(token))
 				{
 					manager->n = atoi(token);
 					stack_operations[i].f(NULL, 0);

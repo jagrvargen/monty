@@ -3,6 +3,12 @@
 manager_t *manager;
 
 /**
+ * main - The calling function of the monty interpreter program.
+ *
+ * @argc: An integer count of arguments passed to the command line.
+ * @argv: A pointer to an array of pointers to command line argument strings.
+ *
+ * Return: An integer 0 for success.
  */
 int main(int argc, char *argv[])
 {

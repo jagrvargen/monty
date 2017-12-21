@@ -8,7 +8,7 @@ void push(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 
-	if (manager->h == NULL)
+	if (&(manager->h) == NULL)
 		free_manager();
 	printf("check push 2\n");
 	newnode = malloc(sizeof(stack_t));
@@ -21,16 +21,16 @@ void push(stack_t **head, unsigned int line_number)
 	newnode->n = manager->n;
 	newnode->prev = NULL;
 	printf("manager->n is %d\n", manager->n);
-	if (*manager->h == NULL)
+	if (manager->h == NULL)
 	{
-		newnode->next = *manager->h;
-		*manager->h = newnode;
+		newnode->next = manager->h;
+		manager->h = newnode;
 	}
 	else
 	{
-		newnode->next = *manager->h;
+		newnode->next = manager->h;
 		newnode->next->prev = newnode;
-		*manager->h = newnode;
+		manager->h = newnode;
 	}
 }
 
@@ -41,9 +41,9 @@ void pall(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 
-	if (*manager->h == NULL)
+	if (&(manager->h) == NULL)
 		return;
-	print = *manager->h;
+	print = manager->h;
 	while (print != NULL)
 	{
 		printf("%d\n", print->n);
@@ -58,10 +58,10 @@ void pint(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 
-        if (*manager->h == NULL)
-		error_print(3, line_number);
+        if (manager->h == NULL)
+		error_print(3);
 
-	print = *(manager->h);
+	print = manager->h;
 	while (print != NULL)
 	{
 		printf("%d\n", print->n);
@@ -71,22 +71,29 @@ void pop(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
 
-	if (head == NULL || *head == NULL)
-		error_print(4, line_number);
+	(void) head;
+	(void) line_number;
 
-	temp = (*head)->next;
-	free(*head);
-	(*head) = temp;
-	(*head)->prev = NULL;
+	if (head == NULL || *head == NULL)
+		error_print(4);
+
+	temp = manager->h->next;
+	free(manager->h);
+	manager->h = temp;
+	manager->h->prev = NULL;
 }
+
 void swap(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
 	int temp_num;
 
+	(void) head;
+	(void) line_number;
+
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 	{
-		error_print(5, line_number); //Stack is less than 2 nodes long
+		error_print(5); /*Stack is less than 2 nodes long*/
 	}
 	temp = (*head)->next;
 	temp_num = (*head)->n;

@@ -67,7 +67,7 @@ void pop(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 
-	if (&(manager->h) == NULL)
+	if (manager->h == NULL)
 		error_print2(6);
 
 	temp = manager->h;

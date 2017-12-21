@@ -28,7 +28,7 @@ void push(stack_t **head, unsigned int line_number)
 	}
 	else
 	{
-		newnode->next = manager->h;
+		newnode->next = manager->h->next;
 		newnode->next->prev = newnode;
 		manager->h = newnode;
 	}
@@ -47,7 +47,7 @@ void pall(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 
-	if (&(manager->h) == NULL || manager->h == NULL)
+	if (!manager->h)
 		return;
 	print = manager->h;
 	while (print != NULL)

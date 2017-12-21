@@ -15,9 +15,13 @@ void access_file(char *file_name)
 	}
 	while (read != EOF)
 	{
+		printf("check 1 access\n");
 		read = getline(&(manager->l), &len, manager->fp);
-		parse_line();
-		(manager->l_n)++;
+		if (read != EOF)
+		{
+			parse_line();
+			(manager->l_n)++;
+		}
         }
 	if (read == EOF)
 		free_manager();

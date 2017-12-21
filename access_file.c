@@ -2,9 +2,10 @@
 
 /**
  */
-void access_file(void)
+void access_file(char *file_name)
 {
-
+	ssize_t read = 0;
+	size_t len = 0;
 
         if (manager->fp == NULL)
 	{

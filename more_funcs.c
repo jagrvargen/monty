@@ -2,15 +2,20 @@
 void add(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
+	int sum = 0;
 
-	if (head == NULL || *head == NULL || (*head)->next == NULL)
-		func_error(6, line_number);		//Stack too short to add top two elements
+	(void) head;
+	(void) line_number;
 
-	temp = (*head)->next;
-	temp->n = temp->n + (*head)->n;
-	free(*head);
-	(*head) = temp;
-	(*head)->prev = NULL;
+	if (manager->h == NULL || manager->h->next == NULL)
+		error_print(6);		/*Stack too short to add top two elements*/
+
+	temp = manager->h;
+	manager->h = manager->h->next;
+	sum += temp->n + manager->h->n;
+	manager->h->n = sum;
+	manager->h->prev = NULL;
+	free(temp);
 }
 void nop(stack_t **head, unsigned int line_number)
 {

@@ -40,7 +40,7 @@ void pall(stack_t **head, unsigned int line_number)
 
 	(void) head;
 	(void) line_number;
-
+	printf("check pall\n");
 	if (&(manager->h) == NULL)
 		return;
 	print = manager->h;
@@ -71,13 +71,13 @@ void pop(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 
-	if (head == NULL || *head == NULL)
+	if (&(manager->h) == NULL)
 		error_print(4);
 
-	temp = manager->h->next;
-	free(manager->h);
-	manager->h = temp;
+	temp = manager->h;
+	manager->h = manager->h->next;
 	manager->h->prev = NULL;
+	free(temp);
 }
 
 void swap(stack_t **head, unsigned int line_number)

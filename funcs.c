@@ -62,10 +62,7 @@ void pint(stack_t **head, unsigned int line_number)
 		error_print(3);
 
 	print = manager->h;
-	while (print != NULL)
-	{
-		printf("%d\n", print->n);
-	}
+	printf("%d\n", print->n);
 }
 void pop(stack_t **head, unsigned int line_number)
 {

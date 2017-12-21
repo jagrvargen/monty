@@ -29,8 +29,8 @@ void parse_line(void)
 		{
 			if (i == 0)
 			{
-				token = strtok(NULL, space));
-				if ((token && atoi(token))
+				token = strtok(NULL, space);
+				if (token && atoi(token))
 				{
 					manager->n = atoi(token);
 					stack_operations[i].f(NULL, 0);

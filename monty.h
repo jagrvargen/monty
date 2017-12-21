@@ -45,11 +45,12 @@ typedef struct manager_s
 	FILE *fp;
 	char *l;
 	int n;
+	char *file_name;
 } manager_t;
 
 extern manager_t *manager;
 
-void access_file(char *file_name);
+void access_file(void);
 void add(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
 void parse_line(void);

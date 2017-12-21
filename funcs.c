@@ -92,4 +92,4 @@ void swap(stack_t **head, unsigned int line_number)
 	temp_num = (*head)->n;
 	(*head)->n = temp->n;
 	temp->n = temp_num;
-}
+

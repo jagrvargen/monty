@@ -6,17 +6,24 @@ void parse_line(void)
 {
 	unsigned int i = 0;
 	char *token = NULL;
-	char *space = " '\n'";
+	char *space = " '\n''\t'";
 
 	instruction_t stack_operations[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
 	token = strtok(manager->l, space);
-	if (token == NULL || token == '\0');
+	while (token == NULL)
+	{
+		access_file();
+	}
 
 	while (stack_operations[i].opcode != NULL)
 	{

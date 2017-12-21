@@ -45,18 +45,21 @@ typedef struct manager_s
 	FILE *fp;
 	char *l;
 	int n;
+	char *file_name;
 } manager_t;
 
 extern manager_t *manager;
 
-void access_file(char *file_name);
+void access_file(void);
+void add(stack_t **head, unsigned int line_number);
+void nop(stack_t **head, unsigned int line_number);
 void parse_line(void);
 void push(stack_t **head, unsigned int line_number);
 void pall(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
-void error_print(int n, unsigned int line_number);
+void error_print(int n);
 void free_manager(void);
 
 #endif

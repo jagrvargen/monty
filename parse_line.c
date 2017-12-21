@@ -2,40 +2,41 @@
 
 /**
  */
-ssize_t parse_line(void)
+void parse_line(void)
 {
-	ssize_t error;
 	unsigned int i = 0;
 	char *token = NULL;
 	const char *space = " ";
+	stack_t *head = NULL;
+	unsigned int l_num = 0;
 
 	instruction_t stack_operations[] = {
-		{'push', push},
-		{'pall', pall},
-		{'pint', pint}
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
 	token = strtok(manager->l, space);
-	if (token == NULL || token == '\0');
-		//error function
-	while (stack_operations[i++] != NULL)
+/*	if (token == NULL || token == '\0');
+ */
+	while (stack_operations[i++].opcode != NULL)
 	{
 		if (strcmp(token, stack_operations[i].opcode) == 0)
 		{
 			if (i == 0)
 			{
-				if (token = strtok(line, space)\
-				    != NULL && isdigit(token))
+				token = strtok(manager->l, space);
+				if (isdigit(atoi(token)))
 				{
-					manager->n = token;
-					stack_operations[i].f();
+					manager->n = *token;
+					stack_operations[i].f(&head, l_num);
 				}
 			}
 			else
-				stack_operations[i].f();
+				stack_operations[i].f(&head, l_num);
 		}
 	}
-	if (stack_operations == NULL)
-		//error function
+/*	if (stack_operations == NULL)
+ */
 }

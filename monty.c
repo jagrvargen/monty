@@ -6,14 +6,10 @@ manager_t *manager;
  */
 int main(int argc, char *argv[])
 {
-	stack_t *head = NULL;
-	unsigned int line_number = 1;
-	FILE *fp = NULL;
-	char *line = NULL;
-	int numero = 0;
-	manager_t control = {head, line_number, fp, line, numero};
+	manager_t control = { NULL, 1, NULL, NULL, 0 };
 
 	manager = &control;
+
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");

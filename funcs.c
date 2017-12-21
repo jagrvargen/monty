@@ -57,7 +57,7 @@ void pint(stack_t **head, unsigned int line_number)
 	(void) line_number;
 
         if (*manager->h == NULL)
-		error_print(3);
+		error_print(3, line_number);
 
 	print = *(manager->h);
 	while (print != NULL)
@@ -70,7 +70,7 @@ void pop(stack_t **head, unsigned int line_number)
 	stack_t *temp;
 
 	if (head == NULL || *head == NULL)
-		func_error(4, line_number);
+		error_print(4, line_number);
 
 	temp = (*head)->next;
 	free(*head);
@@ -84,12 +84,10 @@ void swap(stack_t **head, unsigned int line_number)
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 	{
-		func_error(5, line_number) //Stack is less than 2 nodes long
+		error_print(5, line_number); //Stack is less than 2 nodes long
 	}
-
 	temp = (*head)->next;
 	temp_num = (*head)->n;
 	(*head)->n = temp->n;
 	temp->n = temp_num;
-	return;
 }

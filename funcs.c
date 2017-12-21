@@ -82,18 +82,17 @@ void pop(stack_t **head, unsigned int line_number)
 
 void swap(stack_t **head, unsigned int line_number)
 {
-	stack_t *temp;
 	int temp_num;
 
 	(void) head;
 	(void) line_number;
 
-	if (head == NULL || *head == NULL || (*head)->next == NULL)
+	if (manager->h == NULL || manager->h->next == NULL)
 	{
+		free_manager();
 		error_print(5); /*Stack is less than 2 nodes long*/
 	}
-	temp = (*head)->next;
-	temp_num = (*head)->n;
-	(*head)->n = temp->n;
-	temp->n = temp_num;
+	temp_num = manager->h->n;
+	manager->h->n = manager->h->next->n;
+	manager->h->next->n = temp_num;
 }

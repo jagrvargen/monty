@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	manager->file_name = argv[1];
 
 	manager->fp = fopen(argv[1], "r");
-	if (manager->fp == NULL)
+	if (!manager->fp)
 		error_print(1);
 
 	access_file();

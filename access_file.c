@@ -2,7 +2,7 @@
 
 /**
  */
-void access_file(char *file_name)
+void access_file(void)
 {
 
 

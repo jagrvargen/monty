@@ -38,7 +38,6 @@ void pall(stack_t **head, unsigned int line_number)
 
 	(void) head;
 	(void) line_number;
-	printf("check pall\n");
 	if (!manager->h)
 		return;
 	print = manager->h;

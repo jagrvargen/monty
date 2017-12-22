@@ -29,4 +29,3 @@ void mod(stack_t **head, unsigned int line_number)
         manager->h->prev = NULL;
         free(temp);
 }
-

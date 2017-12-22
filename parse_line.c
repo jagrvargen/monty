@@ -20,7 +20,10 @@ void parse_line(void)
 
 	token = strtok(manager->l, space);
 	if (token == NULL)
+	{
+		free(manager->l);
 		access_file();
+	}
 	while (stack_operations[i].opcode != NULL)
 	{
 		if (strcmp(token, stack_operations[i].opcode) == 0)
@@ -31,11 +34,13 @@ void parse_line(void)
 				push_check(token);
 				manager->n = atoi(token);
 				stack_operations[i].f(NULL, 0);
+				free(manager->l);
 				access_file();
 			}
 			else
 			{
 				stack_operations[i].f(NULL, 0);
+				free(manager->l);
 				access_file();
 			}
 		}

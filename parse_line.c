@@ -8,15 +8,19 @@ void parse_line(void)
 {
 	size_t i = 0;
 	char *space = " '\n'";
-	instruction_t stack_operations[] = { {"push", push}, {"pall", pall},
-                {"pint", pint}, {"pop", pop},
+	instruction_t stack_operations[] = {
+		{"push", push},
+		{"pall", pall},
+                {"pint", pint},
+		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-					     {"mul", mul},
-					     {"mod", mod},
-					     {"div", _div},
-					     {"sub", sub},
+		{"mul", mul},
+		{"mod", mod},
+		{"div", _div},
+		{"sub", sub},
+		{"#", nop},
 		{NULL, NULL}
 	};
 

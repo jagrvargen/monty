@@ -86,7 +86,6 @@ void pop(stack_t **head, unsigned int line_number)
 
 	temp = manager->h;
 	manager->h = manager->h->next;
-	manager->h->prev = NULL;
 	free(temp);
 }
 

@@ -6,12 +6,11 @@
  */
 void parse_line(void)
 {
-	unsigned int i = 0;
+	size_t i = 0;
 	char *token = NULL;
 	char *space = " '\n'";
 	instruction_t stack_operations[] = { {"push", push}, {"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
+                {"pint", pint}, {"pop", pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
@@ -19,11 +18,8 @@ void parse_line(void)
 	};
 
 	token = strtok(manager->l, space);
-	if (token == NULL)
-	{
-		free(manager->l);
-		access_file();
-	}
+	if (!token)
+		return;
 	while (stack_operations[i].opcode != NULL)
 	{
 		if (strcmp(token, stack_operations[i].opcode) == 0)
@@ -34,28 +30,29 @@ void parse_line(void)
 				push_check(token);
 				manager->n = atoi(token);
 				stack_operations[i].f(NULL, 0);
-				free(manager->l);
-				access_file();
 			}
 			else
 			{
 				stack_operations[i].f(NULL, 0);
-				free(manager->l);
-				access_file();
+
 			}
+			break;
 		}
 		i++;
 	}
-	error_print(2);
+	if (stack_operations[i].opcode == NULL)
+		error_print(2);
 }
 
 void push_check(char *token)
 {
-	size_t i;
+	size_t i = 0;
 
-	for (i = 0; token[i] != '\0'; i++)
+	if (token[0] == '-')
+		i++;
+	for (; token[i] != '\0'; i++)
 	{
-		if (token[i] != '-' && !isdigit(token[i]))
-			error_print(4);
+		if (!(isdigit(token[i])))
+		    error_print(4);
 	}
 }

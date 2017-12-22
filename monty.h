@@ -71,8 +71,12 @@ void pint(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void sub(stack_t **head, unsigned int line_number);
+void _div(stack_t **head, unsigned int line_number);
+void mod(stack_t **head, unsigned int line_number);
+void mul(stack_t **head, unsigned int line_number);
 void error_print(int n);
 void error_print2(int n);
+void error_print3(int n);
 void free_manager(void);
 void push_check(char *token);
 

@@ -10,7 +10,6 @@ void mod(stack_t **head, unsigned int line_number)
 {
         stack_t *temp;
         int result = 0;
-	int remain;
 
         (void) head;
         (void) line_number;
@@ -23,9 +22,8 @@ void mod(stack_t **head, unsigned int line_number)
 
 	temp = manager->h;
         manager->h = manager->h->next;
-	remain = (manager->h->n) % (temp->n)
-        result = ((manager->h->n) / (temp->n) + 1) * (temp->n) - remain;
+	result = (manager->h->n) % (temp->n);
         manager->h->n = result;
         manager->h->prev = NULL;
-        free(temp);
+	free(temp);
 }

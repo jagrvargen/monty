@@ -13,6 +13,10 @@ void parse_line(void)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+					     {"mul", mul},
+					     {"mod", mod},
+					     {"div", _div},
+					     {"sub", sub},
 		{NULL, NULL}
 	};
 

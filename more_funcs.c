@@ -71,7 +71,7 @@ void sub(stack_t **head, unsigned int line_number)
  * @head: A void value passed by necessity.
  * @line_number: A void value pass by necessity.
  */
-void div(stack_t **head, unsigned int line_number)
+void _div(stack_t **head, unsigned int line_number)
 {
         stack_t *temp;
         int result = 0;
@@ -109,12 +109,12 @@ void mul(stack_t **head, unsigned int line_number)
         (void) line_number;
 
         if (manager->h == NULL || manager->h->next == NULL)
-                error_print2(12);
+                error_print3(12);
 
         temp = manager->h;
         manager->h = manager->h->next;
         result = (manager->h->n) * (temp->n);
         manager->h->n = result;
         manager->h->prev = NULL;
-        free(temp);
+	free(temp);
 }

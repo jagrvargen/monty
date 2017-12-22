@@ -79,7 +79,7 @@ void error_print2(int n)
 }
 
 /**
- * error_print2 - Uses an integer parameter to determine appropriate error.
+ * error_print3 - Uses an integer parameter to determine appropriate error.
  *
  * @n: An integer value denoting error code.
  */

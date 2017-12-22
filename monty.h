@@ -73,5 +73,6 @@ void sub(stack_t **head, unsigned int line_number);
 void error_print(int n);
 void error_print2(int n);
 void free_manager(void);
+void push_check(char *token);
 
 #endif

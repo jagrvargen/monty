@@ -27,3 +27,19 @@ void mod(stack_t **head, unsigned int line_number)
         manager->h->prev = NULL;
 	free(temp);
 }
+void pstr(stack_t **head, unsigned int line_number)
+{
+	(void) head;
+	(void) line_number;
+
+	while (manager->h->n != 0 && manager->h != NULL)
+	{
+		if ((manager->h->n >= 97 && manager->h->n <= 122) ||
+				(manager->h->n >= 65 && manager->h->n <= 90))
+			putchar(manager->h->n);
+		else
+			break;
+		manager->h = manager->h->next;
+	}
+	printf("\n");
+}

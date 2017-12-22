@@ -74,6 +74,7 @@ void sub(stack_t **head, unsigned int line_number);
 void _div(stack_t **head, unsigned int line_number);
 void mod(stack_t **head, unsigned int line_number);
 void mul(stack_t **head, unsigned int line_number);
+void pstr(stack_t **head, unsigned int line_number);
 void error_print(int n);
 void error_print2(int n);
 void error_print3(int n);

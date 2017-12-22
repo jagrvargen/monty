@@ -17,6 +17,7 @@ void parse_line(void)
 					     {"mod", mod},
 					     {"div", _div},
 					     {"sub", sub},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 

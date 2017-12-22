@@ -64,4 +64,43 @@ void error_print2(int n)
 		free_manager();
 		exit(EXIT_FAILURE);
 	}
+	else if (n == 9)
+        {
+                printf("L%d: can't sub, stack too short\n", manager->l_n);
+                free_manager();
+                exit(EXIT_FAILURE);
+        }
+	else if (n == 10)
+        {
+                printf("L%d: can't div, stack too short\n", manager->l_n);
+                free_manager();
+                exit(EXIT_FAILURE);
+        }
+}
+
+/**
+ * error_print2 - Uses an integer parameter to determine appropriate error.
+ *
+ * @n: An integer value denoting error code.
+ */
+void error_print3(int n)
+{
+        if (n == 11)
+        {
+                printf("L%d: division by zero\n", manager->l_n);
+                free_manager();
+                exit(EXIT_FAILURE);
+        }
+        else if (n == 12)
+        {
+                printf("L%d: can't mul, stack too short\n", manager->l_n);
+                free_manager();
+                exit(EXIT_FAILURE);
+        }
+	else if (n == 13)
+        {
+                printf("L%d: can't mod, stack too short\n", manager->l_n);
+                free_manager();
+                exit(EXIT_FAILURE);
+        }
 }

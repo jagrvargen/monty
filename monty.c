@@ -12,7 +12,7 @@ manager_t *manager;
  */
 int main(int argc, char *argv[])
 {
-	manager_t control = { NULL, 0, NULL, NULL, 0, NULL };
+	manager_t control = { NULL, 0, NULL, NULL, 0, NULL, NULL };
 
 	manager = &control;
 

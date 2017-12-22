@@ -7,7 +7,6 @@
 void parse_line(void)
 {
 	size_t i = 0;
-	char *token = NULL;
 	char *space = " '\n'";
 	instruction_t stack_operations[] = { {"push", push}, {"pall", pall},
                 {"pint", pint}, {"pop", pop},
@@ -17,26 +16,24 @@ void parse_line(void)
 		{NULL, NULL}
 	};
 
-	token = strtok(manager->l, space);
-	if (!token)
+	manager->toke = strtok(manager->l, space);
+	if (!manager->toke)
 		return;
 	while (stack_operations[i].opcode != NULL)
 	{
-		if (strcmp(token, stack_operations[i].opcode) == 0)
+		if (strcmp(manager->toke, stack_operations[i].opcode) == 0)
 		{
 			if (i == 0)
 			{
-				token = strtok(NULL, space);
-				if (!token)
+				manager->toke = strtok(NULL, space);
+				if (manager->toke)
 					error_print(4);
-				push_check(token);
-				manager->n = atoi(token);
+				push_check(manager->toke);
+				manager->n = atoi(manager->toke);
 				stack_operations[i].f(NULL, 0);
 			}
 			else
-			{
 				stack_operations[i].f(NULL, 0);
-			}
 			break;
 		}
 		i++;

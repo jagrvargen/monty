@@ -15,7 +15,7 @@ void error_print(int n)
 	else if (n == 2)
 	{
 		printf("L%d: unknown ", manager->l_n);
-		printf("instruction %s\n", manager->file_name);
+		printf("instruction %s\n", manager->toke);
 		free_manager();
 		exit(EXIT_FAILURE);
 	}

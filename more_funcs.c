@@ -37,3 +37,84 @@ void nop(stack_t **head, unsigned int line_number)
 	(void)(*head);
 	(void)line_number;
 }
+
+/**
+ * sub - Subtract top element from second element
+ * and store the value in the second element
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
+void sub(stack_t **head, unsigned int line_number)
+{
+        stack_t *temp;
+        int result = 0;
+
+        (void) head;
+        (void) line_number;
+
+        if (manager->h == NULL || manager->h->next == NULL)
+                error_print2(9);
+
+        temp = manager->h;
+        manager->h = manager->h->next;
+        result = manager->h->n - temp->n;
+        manager->h->n = result;
+        manager->h->prev = NULL;
+        free(temp);
+}
+
+/**
+ * div - Divide the second element by top element in stack
+ * and delete the top element
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
+void div(stack_t **head, unsigned int line_number)
+{
+        stack_t *temp;
+        int result = 0;
+
+        (void) head;
+        (void) line_number;
+
+        if (manager->h == NULL || manager->h->next == NULL)
+                error_print2(10);
+
+	if (manager->h->n == 0)
+		error_print3(11);
+
+        temp = manager->h;
+        manager->h = manager->h->next;
+        result = (manager->h->n) / (temp->n);
+        manager->h->n = result;
+        manager->h->prev = NULL;
+        free(temp);
+}
+
+/**
+ * mul - Multiply the second element by top element in stack
+ * and delete the top element
+ *
+ * @head: A void value passed by necessity.
+ * @line_number: A void value pass by necessity.
+ */
+void mul(stack_t **head, unsigned int line_number)
+{
+        stack_t *temp;
+        int result = 0;
+
+        (void) head;
+        (void) line_number;
+
+        if (manager->h == NULL || manager->h->next == NULL)
+                error_print2(12);
+
+        temp = manager->h;
+        manager->h = manager->h->next;
+        result = (manager->h->n) * (temp->n);
+        manager->h->n = result;
+        manager->h->prev = NULL;
+        free(temp);
+}

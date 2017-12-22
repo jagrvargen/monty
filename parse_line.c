@@ -28,14 +28,10 @@ void parse_line(void)
 			if (i == 0)
 			{
 				token = strtok(NULL, space);
-				if (token)
-				{
-					manager->n = atoi(token);
-					stack_operations[i].f(NULL, 0);
-					access_file();
-				}
-				else
-					error_print(4);
+				push_check(token);
+				manager->n = atoi(token);
+				stack_operations[i].f(NULL, 0);
+				access_file();
 			}
 			else
 			{
@@ -46,4 +42,15 @@ void parse_line(void)
 		i++;
 	}
 	error_print(2);
+}
+
+void push_check(char *token)
+{
+	size_t i;
+
+	for (i = 0; token[i] != '\0'; i++)
+	{
+		if (token[i] != '-' && !isdigit(token[i]))
+			error_print(4);
+	}
 }

@@ -6,18 +6,16 @@
  */
 void free_manager(void)
 {
-	ssize_t error;
+	stack_t *temp;
 
+	temp = manager->h;
+	fclose(manager->fp);
+	free(manager->l);
 	while (manager->h != NULL)
 	{
-		free(manager->h);
 		manager->h = manager->h->next;
+		free(temp);
+		temp = manager->h;
 	}
-	free(manager->h);
 
-	free(manager->l);
-
-	error = fclose(manager->fp);
-	if (!error)
-		exit(EXIT_FAILURE);
 }

@@ -56,6 +56,7 @@ typedef struct manager_s
 	char *l;
 	int n;
 	char *file_name;
+	char *toke;
 } manager_t;
 
 extern manager_t *manager;

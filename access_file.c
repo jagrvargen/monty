@@ -21,6 +21,5 @@ void access_file(void)
 			parse_line();
 		}
 	}
-	if (read == EOF)
-		free_manager();
+	free_manager();
 }

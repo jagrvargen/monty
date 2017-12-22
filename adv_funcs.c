@@ -27,3 +27,18 @@ void mod(stack_t **head, unsigned int line_number)
         manager->h->prev = NULL;
 	free(temp);
 }
+
+void pchar(stack_t **head, unsigned int line_number)
+{
+
+	(void) head;
+	(void) line_number;
+
+	if (manager->h == NULL)
+		error_print3(14);
+
+	if (manager->h->n < 0 || manager->h->n > 127)
+		error_print3(15);
+	putchar(manager->h->n);
+
+}

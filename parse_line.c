@@ -21,6 +21,7 @@ void parse_line(void)
 		{"div", _div},
 		{"sub", sub},
 		{"#", nop},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 

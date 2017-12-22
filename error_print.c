@@ -103,4 +103,16 @@ void error_print3(int n)
                 free_manager();
                 exit(EXIT_FAILURE);
         }
+	else if (n == 14)
+	{
+		printf("L%d: can't pchar, stack empty\n", manager->l_n);
+		free_manager();
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		printf("L%d: can't pchar, value out of range\n", manager->l_n);
+		free_manager();
+		exit(EXIT_FAILURE);
+	}
 }

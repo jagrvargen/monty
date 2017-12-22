@@ -18,20 +18,12 @@ void push(stack_t **head, unsigned int line_number)
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 		error_print(3);
-
 	newnode->n = manager->n;
 	newnode->prev = NULL;
-	if (manager->h == NULL)
-	{
-		newnode->next = manager->h;
-		manager->h = newnode;
-	}
-	else
-	{
-		newnode->next = manager->h->next;
+	newnode->next = manager->h;
+	manager->h = newnode;
+	if (newnode->next != NULL)
 		newnode->next->prev = newnode;
-		manager->h = newnode;
-	}
 }
 
 /**
@@ -46,7 +38,7 @@ void pall(stack_t **head, unsigned int line_number)
 
 	(void) head;
 	(void) line_number;
-
+	printf("check pall\n");
 	if (!manager->h)
 		return;
 	print = manager->h;

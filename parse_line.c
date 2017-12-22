@@ -8,10 +8,8 @@ void parse_line(void)
 {
 	unsigned int i = 0;
 	char *token = NULL;
-	char *space = " '\n''\t'";
-	instruction_t stack_operations[] = {
-		{"push", push},
-		{"pall", pall},
+	char *space = " '\n'";
+	instruction_t stack_operations[] = { {"push", push}, {"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
@@ -21,11 +19,8 @@ void parse_line(void)
 	};
 
 	token = strtok(manager->l, space);
-	while (token == NULL || token == '\0')
-	{
-		printf("check token\n");
+	if (token == NULL)
 		access_file();
-	}
 	while (stack_operations[i].opcode != NULL)
 	{
 		if (strcmp(token, stack_operations[i].opcode) == 0)
@@ -33,16 +28,20 @@ void parse_line(void)
 			if (i == 0)
 			{
 				token = strtok(NULL, space);
-				if (atoi(token))
+				if (token)
 				{
 					manager->n = atoi(token);
 					stack_operations[i].f(NULL, 0);
+					access_file();
 				}
 				else
 					error_print(4);
 			}
 			else
+			{
 				stack_operations[i].f(NULL, 0);
+				access_file();
+			}
 		}
 		i++;
 	}

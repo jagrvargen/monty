@@ -26,7 +26,7 @@ void parse_line(void)
 			if (i == 0)
 			{
 				manager->toke = strtok(NULL, space);
-				if (manager->toke)
+				if (!manager->toke)
 					error_print(4);
 				push_check(manager->toke);
 				manager->n = atoi(manager->toke);

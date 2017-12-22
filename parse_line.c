@@ -27,6 +27,8 @@ void parse_line(void)
 			if (i == 0)
 			{
 				token = strtok(NULL, space);
+				if (!token)
+					error_print(4);
 				push_check(token);
 				manager->n = atoi(token);
 				stack_operations[i].f(NULL, 0);
@@ -34,7 +36,6 @@ void parse_line(void)
 			else
 			{
 				stack_operations[i].f(NULL, 0);
-
 			}
 			break;
 		}

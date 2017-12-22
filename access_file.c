@@ -17,8 +17,8 @@ void access_file(void)
 		read = getline(&(manager->l), &len, manager->fp);
 		if (read != EOF)
 		{
-			parse_line();
 			(manager->l_n)++;
+			parse_line();
 		}
 	}
 	if (read == EOF)

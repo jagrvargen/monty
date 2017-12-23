@@ -60,3 +60,24 @@ void pstr(stack_t **head, unsigned int line_number)
 	}
 	printf("\n");
 }
+
+void rotl(stack_t **head, unsigned int line_number)
+{
+	stack_t *search;
+	stack_t *hold;
+
+	(void) head;
+	(void) line_number;
+
+	if (manager->h == NULL || manager->h->next == NULL)
+		return;
+
+	search = manager->h;
+	hold = manager->h->next;
+	while (search->next != NULL)
+		search = search->next;
+	search->next = manager->h;
+	hold->prev = NULL;
+	manager->h->next = NULL;
+	manager->h = hold;
+}

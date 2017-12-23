@@ -22,6 +22,7 @@ void parse_line(void)
 		{"sub", sub},
 		{"#", nop},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 

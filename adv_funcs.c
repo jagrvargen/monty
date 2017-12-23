@@ -81,3 +81,24 @@ void rotl(stack_t **head, unsigned int line_number)
 	manager->h->next = NULL;
 	manager->h = hold;
 }
+
+void rotr(stack_t **head, unsigned int line_number)
+{
+	stack_t *search;
+
+	(void) head;
+	(void) line_number;
+
+	if (manager->h == NULL || manager->h->next == NULL)
+		return;
+
+	search = manager->h;
+
+	while (search->next != NULL)
+		search = search->next;
+	search->next = manager->h;
+	manager->h->prev = search;
+	search->prev->next = NULL;
+	search->prev = NULL;
+	manager->h = search;
+}

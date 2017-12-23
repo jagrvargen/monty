@@ -39,8 +39,9 @@ void pchar(stack_t **head, unsigned int line_number)
 
 	if (manager->h->n < 0 || manager->h->n > 127)
 		error_print3(15);
-	putchar(manager->h->n);
 
+	putchar(manager->h->n + '0');
+	putchar('\n');
 }
 
 void pstr(stack_t **head, unsigned int line_number)

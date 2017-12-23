@@ -41,6 +41,8 @@ void pchar(stack_t **head, unsigned int line_number)
 		error_print3(15);
 	putchar(manager->h->n);
 
+}
+
 void pstr(stack_t **head, unsigned int line_number)
 {
 	(void) head;
